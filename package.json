@@ -13,6 +13,7 @@
     "@fontsource/lora": "^5.2.6",
     "@fontsource/playfair": "^5.2.6",
     "antd": "^5.26.3",
+    "framer-motion": "^12.23.0",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
