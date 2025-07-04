@@ -8,7 +8,7 @@
 }
 
 .header {
-  background-color: #000;
+  background-color: #0f0c08; /* changed from #000 to match palette */
   border-bottom: 2px solid #c5a159; /* subtle gold */
   display: flex;
   align-items: center;
@@ -82,7 +82,7 @@
 .ctaButton {
   background-color: #c5a159;
   border: none;
-  color: #111;
+  color: #0f0c08; /* changed from #111 to match dark black */
   font-weight: 600;
   padding: 12px 40px;
   border-radius: 30px;
@@ -94,7 +94,7 @@
 
 .ctaButton:hover {
   background-color: #e0c77d;
-  color: #111;
+  color: #0f0c08;
 }
 
 /* About Section */
@@ -102,7 +102,7 @@
 .aboutSection {
   padding: 50px;
   background-color: #1a1a1a;
-  color: #FFD700;
+  color: #c5a159; /* changed from #FFD700 to muted gold */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -139,7 +139,7 @@
 
 .gallerySection {
   padding: 60px 50px;
-  background-color: #0f0c08;
+  background-color: #0f0c08; /* changed from #2b2215 for consistency */
   color: #c5a159;
   text-align: center;
 }
@@ -204,7 +204,7 @@
 
 .ctaButtonSecondary:hover {
   background-color: #c5a159;
-  color: #111;
+  color: #0f0c08;
   border-color: #c5a159;
 }
 
@@ -212,8 +212,8 @@
 
 .footer {
   text-align: center;
-  background-color: #000;
-  color: #666;
+  background-color: #1a1a1a; /* changed from #3a3122 to darker charcoal */
+  color: #888; /* muted gray */
   padding: 20px 0;
   font-size: 0.9rem;
   font-family: 'Lora', serif;
@@ -267,7 +267,6 @@
     text-align: center;
   }
 
-
   .aboutText {
     max-width: 90%;
     margin: 0 auto;
@@ -307,5 +306,25 @@
   .footer {
     padding: 16px 10px;
     font-size: 0.8rem;
+  }
+}
+
+/* Additional Carousel styles */
+
+.galleryCarousel {
+  margin-top: 30px;
+  max-width: 100%;
+}
+
+.carouselImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .carouselImage {
+    height: 250px;
   }
 }

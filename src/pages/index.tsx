@@ -1,5 +1,6 @@
 import { Button, Layout, Menu, Row, Col, Typography, Card } from 'antd';
 import styles from '../styles/Home.module.css';
+import { Carousel } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
@@ -75,17 +76,17 @@ export default function Home() {
           <Title level={2} className={styles.galleryTitle}>
             Gallery
           </Title>
-          <Row gutter={[24, 24]} justify="center">
+          <Carousel autoplay className={styles.galleryCarousel}>
             {galleryImages.map((src) => (
-              <Col key={src} xs={24} sm={12} md={6}>
-                <Card
-                  hoverable
-                  cover={<img alt="Gallery image" src={src} className={styles.galleryImage} />}
-                  className={styles.galleryCard}
+              <div key={src}>
+                <img
+                  src={src}
+                  alt="Gallery"
+                  className={styles.carouselImage}
                 />
-              </Col>
+              </div>
             ))}
-          </Row>
+          </Carousel>
         </section>
 
         <section className={styles.ctaSection}>
