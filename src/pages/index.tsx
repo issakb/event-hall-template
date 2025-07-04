@@ -1,4 +1,4 @@
-import { Button, Layout, Menu, Row, Col, Typography, Card } from 'antd';
+import { Button, Layout, Menu, Row, Col, Typography } from 'antd';
 import styles from '../styles/Home.module.css';
 import { Carousel } from 'antd';
 
