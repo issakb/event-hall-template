@@ -100,14 +100,15 @@
 /* About Section */
 
 .aboutSection {
-  padding: 50px 50px 70px 50px;
+  padding: 50px;
   background-color: #1a1a1a;
-  color: #f7f1e1;
+  color: #FFD700;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 40px;
+  flex-wrap: wrap; /* allows stacking */
 }
 
 .aboutTitle {
@@ -216,4 +217,95 @@
   padding: 20px 0;
   font-size: 0.9rem;
   font-family: 'Lora', serif;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 20px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .menu {
+    justify-content: center;
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .heroSection {
+    padding: 80px 20px 60px 20px;
+    background-size: cover;
+    min-height: 350px;
+  }
+
+  .heroText {
+    max-width: 90%;
+  }
+
+  .ctaButton {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .aboutSection {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .aboutTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+
+  .aboutText {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .aboutImage {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .gallerySection {
+    padding: 40px 20px;
+  }
+
+  .galleryTitle {
+    font-size: 2rem;
+  }
+
+  .galleryCard {
+    height: 180px;
+  }
+
+  .ctaSection {
+    padding: 40px 20px;
+  }
+
+  .ctaTitle {
+    font-size: 2rem;
+  }
+
+  .ctaButtonSecondary {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .footer {
+    padding: 16px 10px;
+    font-size: 0.8rem;
+  }
 }
