@@ -102,13 +102,7 @@
 .aboutSection {
   padding: 50px;
   background-color: #1a1a1a;
-  color: #c5a159; /* changed from #FFD700 to muted gold */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap; /* allows stacking */
+  color: #c5a159;
 }
 
 .aboutTitle {
@@ -127,12 +121,19 @@
   line-height: 1.6;
 }
 
-.aboutImage {
+.galleryCarousel {
+  max-width: 100%;
   border-radius: 15px;
-  max-width: 500px;
-  width: 100%;
+  overflow: hidden;
   box-shadow: 0 8px 20px rgba(197, 161, 89, 0.3);
+}
+
+.carouselImage {
+  width: 100%;
+  height: auto;         /* Responsive height */
+  max-height: 400px;    /* Max height to avoid stretching */
   object-fit: cover;
+  border-radius: 15px;
 }
 
 /* Gallery Section */
@@ -171,6 +172,103 @@
   border-radius: 15px;
   overflow: hidden;
   height: 250px;
+}
+
+.faqContactSection {
+  padding: 60px 50px;
+  background-color: #0f0c08;
+  color: #f7f1e1;
+}
+
+.faqSection,
+.contactSection {
+  background-color: #1a1a1a;
+  border: 1px solid #c5a159;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(197, 161, 89, 0.15);
+}
+
+.faqTitle,
+.contactTitle {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 2rem;
+  color: #c5a159;
+  font-family: 'Playfair Display', serif;
+}
+
+.contactForm .ant-form-item-label > label {
+  color: #f7f1e1;
+  font-weight: 600;
+  font-family: 'Lora', serif;
+}
+
+.contactForm .ant-input,
+.contactForm .ant-input-textarea {
+  background-color: #0f0c08;
+  color: #f7f1e1;
+  border: 1px solid #c5a159;
+}
+
+.contactForm .ant-input:focus,
+.contactForm .ant-input:hover,
+.contactForm .ant-input-textarea:focus,
+.contactForm .ant-input-textarea:hover {
+  border-color: #c5a159;
+  box-shadow: 0 0 0 2px rgba(229, 199, 125, 0.2);
+}
+
+.contactForm .ant-btn-primary {
+  background-color: #c5a159;
+  border-color: #c5a159;
+  color: #0f0c08;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.contactForm .ant-btn-primary:hover {
+  background-color: #c5a159;
+  color: #0f0c08;
+}
+
+/* Dropdown menu (via dropdownClassName) */
+.customDropdown {
+  background-color: #1a1a1a !important;
+  color: #f7f1e1 !important;
+  border: 1px solid #c5a159 !important;
+}
+
+/* Individual options */
+.customDropdown .ant-select-item-option {
+  background-color: #1a1a1a !important;
+  color: #f7f1e1 !important;
+}
+
+.customDropdown .ant-select-item-option-active {
+  background-color: #2a2a2a !important;
+  color: #c5a159 !important;
+}
+
+.customDropdown .ant-select-item-option-selected {
+  background-color: #2a2a2a !important;
+  color: #c5a159 !important;
+}
+
+.ant-collapse {
+  background-color: #1a1a1a;
+  border: 1px solid #c5a159;
+}
+
+.ant-collapse-header {
+  color: #c5a159 !important;
+  font-weight: 600;
+  font-family: 'Lora', serif;
+}
+
+.ant-collapse-content {
+  background-color: #0f0c08;
+  color: #f7f1e1;
 }
 
 /* CTA Section */
@@ -258,8 +356,8 @@
   .aboutSection {
     flex-direction: column;
     align-items: center;
-    text-align: center;
     padding: 40px 20px;
+    text-align: center;
   }
 
   .aboutTitle {
@@ -269,7 +367,7 @@
 
   .aboutText {
     max-width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
   }
 
   .aboutImage {
@@ -289,6 +387,13 @@
     height: 180px;
   }
 
+  .galleryCarousel {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .carouselImage {
+    max-height: 250px;
+  }
   .ctaSection {
     padding: 40px 20px;
   }
@@ -306,25 +411,5 @@
   .footer {
     padding: 16px 10px;
     font-size: 0.8rem;
-  }
-}
-
-/* Additional Carousel styles */
-
-.galleryCarousel {
-  margin-top: 30px;
-  max-width: 100%;
-}
-
-.carouselImage {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-@media (max-width: 768px) {
-  .carouselImage {
-    height: 250px;
   }
 }

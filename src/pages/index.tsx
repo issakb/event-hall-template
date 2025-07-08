@@ -1,17 +1,22 @@
-import { Button, Layout, Menu, Row, Col, Typography } from 'antd';
+import { Button, Layout, Menu, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker, Select } from 'antd';
 import styles from '../styles/Home.module.css';
-import { Carousel } from 'antd';
 import { motion } from "framer-motion";
+import dayjs from 'dayjs';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
+const { Option } = Select;
+const disablePastDates = (current: dayjs.Dayjs) => {
+  return current && current < dayjs().endOf('day');
+};
 
 const galleryImages = [
-  './gallery1.jpg',
-  '/gallery2.jpg',
-  '/gallery3.webp',
-  '/gallery4.jpeg',
+  'venue-about.webp',
+  './table_decor.webp',
+  '/wall_decor.webp',
+  '/table.webp',
 ];
+//TODO: Remove bouncy title animation
 const MotionButton = motion(Button);
 export default function Home() {
   return (
@@ -27,10 +32,10 @@ export default function Home() {
           selectable={false}
           className={styles.menu}
           items={[
-            { key: 'home', label: 'Home' },
-            { key: 'about', label: 'About' },
-            { key: 'gallery', label: 'Gallery' },
-            { key: 'contact', label: 'Contact' },
+            { key: 'number', label: '07960 821365' },
+            // { key: 'about', label: 'About' },
+            // { key: 'gallery', label: 'Gallery' },
+            // { key: 'contact', label: 'Contact' },
           ]}
         />
       </Header>
@@ -93,28 +98,98 @@ export default function Home() {
               </motion.div>
             </Col>
             <Col xs={24} md={12}>
-              <motion.img
-                src="/venue-about.webp"
-                alt="About"
-                className={styles.aboutImage}
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-              />
+              >
+                <Carousel autoplay className={styles.galleryCarousel}>
+                  {galleryImages.map((src) => (
+                    <div key={src}>
+                      <img
+                        src={src}
+                        alt="Gallery"
+                        className={styles.carouselImage}
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              </motion.div>
+            </Col>
+          </Row>
+        </motion.section>
+
+        <motion.section
+          className={styles.faqContactSection}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Row gutter={[48, 48]} justify="center" align="top">
+            <Col xs={24} md={12}>
+              <div className={styles.faqSection}>
+                <Title level={2} className={styles.faqTitle}>FAQs</Title>
+                <Collapse accordion>
+                  <Collapse.Panel header="What is the maximum number of guests?" key="1">
+                    <p>We can host up to 200 guests.</p>
+                  </Collapse.Panel>
+                  <Collapse.Panel header="Do you offer catering?" key="2">
+                    <p>Yes, we offer customizable catering options to suit all tastes.</p>
+                  </Collapse.Panel>
+                  <Collapse.Panel header="Is parking available?" key="3">
+                    <p>Yes, we have on-site parking.</p>
+                  </Collapse.Panel>
+                  <Collapse.Panel header="What transport links are available to use to reach your venue?" key="4">
+                    <p>Our Venue is located 2.2 miles from Grand Central Station in Birmingham, 4 miles from the M6 and 5 miles from the M5 Motorway Networks.
+                      The number 66 bus stops outside the H suite and goes into Birmingham City Centre.
+                        We are located outside of the Clean Air Zone so charges can be avoided depending on your entry route.</p>
+                  </Collapse.Panel>
+                  
+                </Collapse>
+              </div>
+            </Col>
+            <Col xs={24} md={12}>
+              <div className={styles.contactSection}>
+                <Title level={2} className={styles.contactTitle}>Contact Us</Title>
+                <Form layout="vertical" className={styles.contactForm}>
+                  <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+                    <Input placeholder="Your Name" />
+                  </Form.Item>
+                  <Form.Item label="Email" name="email" rules={[{ required: true, type: 'email' }]}>
+                    <Input placeholder="you@example.com" />
+                  </Form.Item>
+                  <Form.Item label="Phone" name="phone" rules={[{ required: false }]}>
+                    <Input placeholder="07231234569" />
+                  </Form.Item>
+                  <Form.Item label="Number of Guests" name="guests" rules={[{ required: true, message: 'Please select a guest range' }]}>
+                    <Input placeholder="e.g. 50–100 guests" />
+                  </Form.Item>
+                  <Form.Item label="Date of Event" name="date" rules={[{ required: true, message: 'Please select a date' }]}>
+                    <DatePicker style={{ width: '100%' }} disabledDate={disablePastDates} />
+                  </Form.Item>
+                  <Form.Item label="Message" name="message" rules={[{ required: true }]}>
+                    <Input.TextArea rows={4} placeholder="Tell us about your event..." />
+                  </Form.Item>
+                  <Form.Item>
+                    <Button type="primary" htmlType="submit">Send Message</Button>
+                  </Form.Item>
+                </Form>
+              </div>
             </Col>
           </Row>
         </motion.section>
 
 
-        <motion.section
+        {/* <motion.section
           className={styles.gallerySection}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Title level={2} className={styles.galleryTitle}>
+          <Title level={2} className={styles.galleryTitle}> 
             Gallery
           </Title>
           <motion.div
@@ -135,7 +210,7 @@ export default function Home() {
               ))}
             </Carousel>
           </motion.div>
-        </motion.section>
+        </motion.section> */}
 
         <motion.section
           className={styles.ctaSection}
