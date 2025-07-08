@@ -1,11 +1,10 @@
-import { Button, Layout, Menu, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker, Select } from 'antd';
+import { Button, Layout, Menu, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker } from 'antd';
 import styles from '../styles/Home.module.css';
 import { motion } from "framer-motion";
 import dayjs from 'dayjs';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
-const { Option } = Select;
 const disablePastDates = (current: dayjs.Dayjs) => {
   return current && current < dayjs().endOf('day');
 };
