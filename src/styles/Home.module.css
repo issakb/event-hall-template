@@ -42,6 +42,26 @@
   color: #e0c77d !important;
 }
 
+.titlePhoneNumber {
+  margin-left: auto;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.phoneIcon {
+  color: inherit; /* Match the parent color */
+  font-size: 1.3rem; /* Adjust size to match the text */
+  margin-right: 8px; /* Add spacing between the icon and text */
+}
+
+.phoneText {
+  font-family: inherit; /* Inherit font from parent */
+  color: inherit; /* Inherit color from parent */
+  font-size: 16px; /* Adjust size if needed */
+  font-weight: bold; /* Optional for emphasis */
+}
+
 .content {
   padding: 0;
 }
@@ -84,7 +104,7 @@
   border: none;
   color: #0f0c08; /* changed from #111 to match dark black */
   font-weight: 600;
-  padding: 12px 40px;
+  padding: 12px 10px;
   border-radius: 30px;
   box-shadow: 0 6px 15px rgba(197, 161, 89, 0.4);
   transition: background-color 0.3s ease;
@@ -175,7 +195,7 @@
 }
 
 .faqContactSection {
-  padding: 60px 50px;
+  padding: 50px 50px;
   background-color: #0f0c08;
   color: #f7f1e1;
 }
@@ -274,7 +294,7 @@
 /* CTA Section */
 
 .ctaSection {
-  padding: 60px 50px;
+  padding: 10px 10px;
   background-color: #1a1a1a;
   text-align: center;
   color: #f7f1e1;
@@ -286,6 +306,10 @@
   font-size: 2.5rem;
   margin-bottom: 30px;
   color: #c5a159;
+}
+
+.ctaButtonWrapper{
+  padding: 10px 10px;
 }
 
 .ctaButtonSecondary {
@@ -307,14 +331,76 @@
 }
 
 /* Footer */
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .footer {
   text-align: center;
   background-color: #1a1a1a; /* changed from #3a3122 to darker charcoal */
   color: #888; /* muted gray */
-  padding: 20px 0;
+  padding: 10px 0;
   font-size: 0.9rem;
   font-family: 'Lora', serif;
+}
+
+@media (min-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footerText {
+  color: #888;
+  font-size: 0.9rem;
+  font-family: 'Lora', serif;
+  text-align: center;
+  order: 2;
+}
+
+.footerIcons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  order: 1
+}
+
+.footerIcon {
+  color: #c5a159;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+.footerIcon:hover {
+  color: #f7f1e1;
+}
+
+.modalContainer {
+  background-color: #ffffff; /* Set a clean white background */
+  padding: 20px; /* Add padding for content spacing */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+}
+
+.modalTitle {
+  font-size: 1.5rem; /* Slightly larger title font */
+  font-weight: bold; /* Make the title stand out */
+  color: #333333; /* Dark text for readability */
+  margin-bottom: 10px; /* Add spacing below the title */
+}
+
+.modalContent {
+  font-size: 1rem; /* Standard font size for content */
+  color: #555555; /* Neutral text color */
+  line-height: 1.5; /* Improve readability */
 }
 
 /* Mobile Responsiveness */
@@ -324,6 +410,19 @@
     height: auto;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .titlePhoneNumber {
+    margin-right: 10px; /* Reduce margin for smaller screens */
+    margin-left: auto;
+  }
+
+  .phoneIcon {
+    font-size: 1.5rem; /* Adjust icon size for smaller screens */
+  }
+
+  .phoneText {
+    font-size: 1.5rem; /* Adjust text size for smaller screens */
   }
 
   .logo {
@@ -360,6 +459,11 @@
     text-align: center;
   }
 
+  @media (min-width: 1200px) {
+    .aboutSection {
+      gap: 40px; /* Limit the gap for larger screens */
+    }
+  }
   .aboutTitle {
     font-size: 2rem;
     text-align: center;
@@ -369,11 +473,11 @@
     max-width: 90%;
     margin: 0 auto 30px auto;
   }
-
+/* 
   .aboutImage {
     width: 100%;
     max-width: 400px;
-  }
+  } */
 
   .gallerySection {
     padding: 40px 20px;

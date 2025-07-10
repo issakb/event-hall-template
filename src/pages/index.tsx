@@ -1,13 +1,36 @@
-import { Button, Layout, Menu, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker } from 'antd';
+import React, { useState } from 'react';
+import { Button, Layout, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker, Modal } from 'antd';
+import { FaInstagram, FaFacebookF, FaXTwitter, FaPhone } from 'react-icons/fa6';
 import styles from '../styles/Home.module.css';
 import { motion } from "framer-motion";
 import dayjs from 'dayjs';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
+
 const disablePastDates = (current: dayjs.Dayjs) => {
   return current && current < dayjs().endOf('day');
 };
+
+const handleSubmit = async (values: any, setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>, form: any) => {
+  const response = await fetch("https://formspree.io/f/xgvylylw", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(values),
+  });
+
+  if (response.ok) {
+    setIsModalVisible(true);
+    form.resetFields();
+  } else {
+    Modal.error({
+      title:"Submission Failed",
+      content:"An error occurred while submitting the form. Please try again later or give us a call on 07960 821365."});
+  }
+};
+
 
 const galleryImages = [
   'venue-about.webp',
@@ -16,16 +39,21 @@ const galleryImages = [
   '/table.webp',
 ];
 //TODO: Remove bouncy title animation
-const MotionButton = motion(Button);
+const MotionButton = motion.create(Button);
 export default function Home() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [form] = Form.useForm();
   return (
     <Layout className={styles.layout}>
       <Header className={styles.header}>
       <motion.div whileHover={{ scale: 1.05, rotate: 1 }} transition={{ type: "spring", stiffness: 200 }}>
         <div className={styles.logo}>The Golden Pearl</div>
       </motion.div>
-
-        <Menu
+      <div className={styles.titlePhoneNumber}>
+        <FaPhone className={styles.phoneIcon} />
+        <Typography.Text className={styles.phoneText}>07960 821365</Typography.Text>
+      </div>
+        {/* <Menu
           theme="dark"
           mode="horizontal"
           selectable={false}
@@ -36,7 +64,7 @@ export default function Home() {
             // { key: 'gallery', label: 'Gallery' },
             // { key: 'contact', label: 'Contact' },
           ]}
-        />
+        /> */}
       </Header>
 
       <Content className={styles.content}>
@@ -145,14 +173,18 @@ export default function Home() {
                       The number 66 bus stops outside the H suite and goes into Birmingham City Centre.
                         We are located outside of the Clean Air Zone so charges can be avoided depending on your entry route.</p>
                   </Collapse.Panel>
-                  
                 </Collapse>
               </div>
             </Col>
             <Col xs={24} md={12}>
               <div className={styles.contactSection}>
                 <Title level={2} className={styles.contactTitle}>Contact Us</Title>
-                <Form layout="vertical" className={styles.contactForm}>
+                <Form 
+                  form={form}
+                  className={styles.contactForm}
+                  onFinish={(values) => handleSubmit(values, setIsModalVisible, form)} 
+                  layout="vertical" 
+                >
                   <Form.Item label="Name" name="name" rules={[{ required: true }]}>
                     <Input placeholder="Your Name" />
                   </Form.Item>
@@ -171,8 +203,8 @@ export default function Home() {
                   <Form.Item label="Message" name="message" rules={[{ required: true }]}>
                     <Input.TextArea rows={4} placeholder="Tell us about your event..." />
                   </Form.Item>
-                  <Form.Item>
-                    <Button type="primary" htmlType="submit">Send Message</Button>
+                  <Form.Item style={{textAlign: 'center'}}>
+                    <Button className= {styles.ctaButtonSecondary} type="default" htmlType="submit">Send Inquiry</Button>
                   </Form.Item>
                 </Form>
               </div>
@@ -222,6 +254,7 @@ export default function Home() {
             Ready to Celebrate?
           </Title>
           <motion.div
+            className={styles.ctaButtonWrapper}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 300 }}
@@ -239,8 +272,45 @@ export default function Home() {
       </Content>
 
       <Footer className={styles.footer}>
-        © {new Date().getFullYear()} Golden Pearl Banqueting Suite. All rights reserved.
+        <div className={styles.footerContainer}>
+          <Typography.Text className={styles.footerText}>
+            © {new Date().getFullYear()} Golden Pearl Banqueting Suite. All rights reserved.
+          </Typography.Text>
+          <div className={styles.footerIcons}>
+            {[
+              { href: 'https://instagram.com', icon: <FaInstagram />, label: 'Instagram' },
+              { href: 'https://facebook.com', icon: <FaFacebookF />, label: 'Facebook' },
+              { href: 'https://twitter.com', icon: <FaXTwitter />, label: 'Twitter' },
+            ].map((social) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className={styles.footerIcon}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </div>
+        </div>
       </Footer>
+      <Modal
+        title={<div className="modalTitle">Form Submitted Successfully</div>}
+        open={isModalVisible}
+        onOk={() => setIsModalVisible(false)}
+        onCancel={() => setIsModalVisible(false)}
+        okText="Close"
+        className="modalContainer"
+      >
+        <div className="modalContent">
+          <p>Thank you for your inquiry! We will get back to you shortly.</p>
+        </div>
+      </Modal>
     </Layout>
   );
 }
