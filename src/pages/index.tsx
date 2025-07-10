@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Layout, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker, Modal } from 'antd';
+import { Button, Layout, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker, Modal, FormInstance } from 'antd';
 import { FaInstagram, FaFacebookF, FaXTwitter, FaPhone } from 'react-icons/fa6';
 import styles from '../styles/Home.module.css';
 import { motion } from "framer-motion";
@@ -12,7 +12,11 @@ const disablePastDates = (current: dayjs.Dayjs) => {
   return current && current < dayjs().endOf('day');
 };
 
-const handleSubmit = async (values: any, setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>, form: any) => {
+const handleSubmit = async (
+  values: Record<string, unknown>, // Replace `any` with a more specific type
+  setIsModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
+  form: FormInstance // Use Ant Design's FormInstance type
+) => {
   const response = await fetch("https://formspree.io/f/xgvylylw", {
     method: "POST",
     headers: {
