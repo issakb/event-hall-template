@@ -25,6 +25,27 @@
   cursor: default;
 }
 
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImage {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoText {
+  color: #c5a159;
+  font-weight: 700;
+  font-size: 1.8rem;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1.2px;
+  cursor: default;
+}
+
 .menu {
   background-color: transparent !important;
   color: #c5a159 !important;

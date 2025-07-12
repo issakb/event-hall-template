@@ -51,7 +51,10 @@ export default function Home() {
     <Layout className={styles.layout}>
       <Header className={styles.header}>
       <motion.div whileHover={{ scale: 1.05, rotate: 1 }} transition={{ type: "spring", stiffness: 200 }}>
-        <div className={styles.logo}>The Golden Pearl</div>
+      <div className={styles.logoContainer}>
+        <img src="/logo.png" alt="Golden Pearl Logo" className={styles.logoImage} />
+        <span className={styles.logoText}>The Golden Pearl</span>
+      </div>
       </motion.div>
       <div className={styles.titlePhoneNumber}>
         <FaPhone className={styles.phoneIcon} />
