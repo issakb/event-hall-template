@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Layout, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker, Modal, FormInstance } from 'antd';
-import { FaInstagram, FaFacebookF, FaXTwitter, FaPhone } from 'react-icons/fa6';
+import { FaInstagram, FaPhone, FaTiktok } from 'react-icons/fa6';
 import styles from '../styles/Home.module.css';
 import { motion } from "framer-motion";
 import dayjs from 'dayjs';
+import { WhatsAppOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
@@ -31,7 +32,7 @@ const handleSubmit = async (
   } else {
     Modal.error({
       title:"Submission Failed",
-      content:"An error occurred while submitting the form. Please try again later or give us a call on 07960 821365."});
+      content:"An error occurred while submitting the form. Please try again later or give us a call on 07960 821 365."});
   }
 };
 
@@ -50,15 +51,13 @@ export default function Home() {
   return (
     <Layout className={styles.layout}>
       <Header className={styles.header}>
-      <motion.div whileHover={{ scale: 1.05, rotate: 1 }} transition={{ type: "spring", stiffness: 200 }}>
       <div className={styles.logoContainer}>
         <img src="/logo.png" alt="Golden Pearl Logo" className={styles.logoImage} />
         <span className={styles.logoText}>The Golden Pearl</span>
       </div>
-      </motion.div>
       <div className={styles.titlePhoneNumber}>
         <FaPhone className={styles.phoneIcon} />
-        <Typography.Text className={styles.phoneText}>07960 821365</Typography.Text>
+        <Typography.Text className={styles.phoneText}>07960 821 365</Typography.Text>
       </div>
         {/* <Menu
           theme="dark"
@@ -97,6 +96,9 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300 }}
+              onClick={() => {
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Book Your Dream Day
             </MotionButton>
@@ -185,7 +187,7 @@ export default function Home() {
             </Col>
             <Col xs={24} md={12}>
               <div className={styles.contactSection}>
-                <Title level={2} className={styles.contactTitle}>Contact Us</Title>
+                <Title id='contact' level={2} className={styles.contactTitle}>Contact Us</Title>
                 <Form 
                   form={form}
                   className={styles.contactForm}
@@ -270,24 +272,28 @@ export default function Home() {
               type="default"
               size="large"
               className={styles.ctaButtonSecondary}
+              href="https://wa.me/447960821365?text=Hi%20Golden%20Pearl%2C%20I%27m%20interested%20in%20booking%20the%20venue."
+              target="_blank"
+              rel="noopener noreferrer"
+              icon={<WhatsAppOutlined />}
             >
-              Contact Us
+              Chat on WhatsApp
             </Button>
           </motion.div>
         </motion.section>
-
       </Content>
 
       <Footer className={styles.footer}>
         <div className={styles.footerContainer}>
           <Typography.Text className={styles.footerText}>
+            <p className={styles.footerAddress}>9-11 Bloomsbury St, Birmingham B7 5BX</p>
             © {new Date().getFullYear()} Golden Pearl Banqueting Suite. All rights reserved.
           </Typography.Text>
           <div className={styles.footerIcons}>
             {[
-              { href: 'https://instagram.com', icon: <FaInstagram />, label: 'Instagram' },
-              { href: 'https://facebook.com', icon: <FaFacebookF />, label: 'Facebook' },
-              { href: 'https://twitter.com', icon: <FaXTwitter />, label: 'Twitter' },
+              { href: 'https://www.instagram.com/goldenpearlbanquetingsuite/', icon: <FaInstagram />, label: 'Instagram' },
+              { href: 'https://www.tiktok.com/@goldenpearlsuite', icon: <FaTiktok />, label: 'TikTok' },
+              {href: "https://wa.me/447960821365", icon: <WhatsAppOutlined />, label:'WhatsApp'}
             ].map((social) => (
               <motion.a
                 key={social.label}
