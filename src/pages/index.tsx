@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Button, Layout, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker, Modal, FormInstance } from 'antd';
 import { FaInstagram, FaPhone, FaTiktok } from 'react-icons/fa6';
 import styles from '../styles/Home.module.css';
 import { motion } from "framer-motion";
 import dayjs from 'dayjs';
-import { WhatsAppOutlined } from '@ant-design/icons';
+import { EnvironmentOutlined, MailOutlined, PhoneOutlined, WhatsAppOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
@@ -100,7 +101,7 @@ export default function Home() {
                 document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Book Your Dream Day
+              Book Your Dream Event
             </MotionButton>
             </motion.div>
             </Col>
@@ -164,30 +165,61 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <Row gutter={[48, 48]} justify="center" align="top">
-            <Col xs={24} md={12}>
-              <div className={styles.faqSection}>
-                <Title level={2} className={styles.faqTitle}>FAQs</Title>
-                <Collapse accordion>
-                  <Collapse.Panel header="What is the maximum number of guests?" key="1">
-                    <p>We can host up to 200 guests.</p>
-                  </Collapse.Panel>
-                  <Collapse.Panel header="Do you offer catering?" key="2">
-                    <p>Yes, we offer customizable catering options to suit all tastes.</p>
-                  </Collapse.Panel>
-                  <Collapse.Panel header="Is parking available?" key="3">
-                    <p>Yes, we have on-site parking.</p>
-                  </Collapse.Panel>
-                  <Collapse.Panel header="What transport links are available to use to reach your venue?" key="4">
-                    <p>Our Venue is located 2.2 miles from Grand Central Station in Birmingham, 4 miles from the M6 and 5 miles from the M5 Motorway Networks.
-                      The number 66 bus stops outside the H suite and goes into Birmingham City Centre.
-                        We are located outside of the Clean Air Zone so charges can be avoided depending on your entry route.</p>
-                  </Collapse.Panel>
-                </Collapse>
+          <Col xs={24} md={12}>
+            <div className={styles.faqSection}>
+              <Title level={3} className={styles.faqTitle}>Frequently Asked Questions (FAQs)</Title>
+              <Collapse accordion>
+                <Collapse.Panel header="What is the maximum number of guests?" key="1">
+                  <Paragraph>We can host up to 200 guests.</Paragraph>
+                </Collapse.Panel>
+                <Collapse.Panel header="Do you offer catering?" key="2">
+                  <Paragraph>Yes, we offer customizable catering options to suit all tastes.</Paragraph>
+                </Collapse.Panel>
+                <Collapse.Panel header="Is parking available?" key="3">
+                  <Paragraph>Yes, we have on-site parking.</Paragraph>
+                </Collapse.Panel>
+                <Collapse.Panel header="What transport links are nearby?" key="4">
+                  <Paragraph>
+                    Located 2.2 miles from Birmingham Grand Central, near M6/M5, outside Clean Air Zone.
+                  </Paragraph>
+                </Collapse.Panel>
+              </Collapse>
+            </div>
+
+            <div className={styles.contactInfoCard}>
+              <Title level={3} className={styles.contactInfoTitle}>Where to Find Us?</Title>
+
+              <p className={styles.contactInfoText}>
+                <PhoneOutlined className={styles.contactIcon} />
+                <a href="tel:07960821365" className={styles.contactLink}>07960 821 365</a>
+              </p>
+
+              <p className={styles.contactInfoText}>
+                <MailOutlined className={styles.contactIcon} />
+                <a href="mailto:admin@goldenpearlbs.co.uk" className={styles.contactLink}>
+                  admin@goldenpearlbs.co.uk
+                </a>
+              </p>
+
+              <p className={styles.contactInfoText}>
+                <EnvironmentOutlined className={styles.contactIcon} />
+                9-11 Bloomsbury St,<br /> Birmingham, B7 5BX
+              </p>
+
+              <div className={styles.mapEmbedWrapper}>
+                <iframe
+                  title="Golden Pearl Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1742.8066033141224!2d-1.8721332000000004!3d52.4940702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bb67a9693a0f%3A0xf97edb7acaae4840!2sGolden%20Pearl%20Banqueting%20Suite!5e1!3m2!1sen!2suk!4v1752490272314!5m2!1sen!2suk"
+                  loading="lazy"
+                  allowFullScreen
+                  className={styles.mapIframe}
+                ></iframe>
               </div>
-            </Col>
+            </div>
+          </Col>
             <Col xs={24} md={12}>
               <div className={styles.contactSection}>
-                <Title id='contact' level={2} className={styles.contactTitle}>Contact Us</Title>
+                <Title id='contact' level={3} className={styles.contactTitle}>Contact Us</Title>
                 <Form 
                   form={form}
                   className={styles.contactForm}
@@ -241,7 +273,7 @@ export default function Home() {
             <Carousel autoplay className={styles.galleryCarousel}>
               {galleryImages.map((src) => (
                 <div key={src}>
-                  <img
+                  <Image
                     src={src}
                     alt="Gallery"
                     className={styles.carouselImage}
@@ -286,9 +318,11 @@ export default function Home() {
       <Footer className={styles.footer}>
         <div className={styles.footerContainer}>
           <Typography.Text className={styles.footerText}>
-            <p className={styles.footerAddress}>9-11 Bloomsbury St, Birmingham B7 5BX</p>
             © {new Date().getFullYear()} Golden Pearl Banqueting Suite. All rights reserved.
           </Typography.Text>
+          <p className={styles.visuallyHidden}>
+            100 Icknield Port Road, Birmingham, B16 0AA
+          </p>
           <div className={styles.footerIcons}>
             {[
               { href: 'https://www.instagram.com/goldenpearlbanquetingsuite/', icon: <FaInstagram />, label: 'Instagram' },

@@ -225,13 +225,14 @@
 .contactSection {
   background-color: #1a1a1a;
   border: 1px solid #c5a159;
-  padding: 30px;
+  padding: 24px;
   border-radius: 16px;
   box-shadow: 0 6px 15px rgba(197, 161, 89, 0.15);
 }
 
 .faqTitle,
-.contactTitle {
+.contactTitle,
+.contactInfoTitle {
   margin-bottom: 24px;
   text-align: center;
   font-size: 2rem;
@@ -312,6 +313,93 @@
   color: #f7f1e1;
 }
 
+.contactInfoBlock {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #c5a159;
+}
+
+
+.contactIcon {
+  font-size: 1rem;
+  color: #c5a159;
+  margin-right: 8px;
+}
+
+.contactLink {
+  color: #f7f1e1;
+  margin-left: 4px;
+  text-decoration: none;
+}
+
+.contactLink:hover {
+  color: #e0c77d;
+}
+
+.viewMapLink {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #c5a159;
+  text-decoration: none;
+}
+
+.viewMapLink:hover {
+  color: #e0c77d;
+}
+.contactInfoCard {
+  margin-top: 30px;
+  background-color: #1a1a1a;
+  border: 1px solid #c5a159;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(197, 161, 89, 0.15);
+}
+
+.contactInfoTitle {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 2rem;
+  color: #c5a159;
+  font-family: 'Playfair Display', serif;
+}
+
+.contactInfoText {
+  font-family: 'Lora', serif;
+  color: #f7f1e1;
+  font-size: .95rem;
+  margin: 12px 0;
+}
+
+.contactLink {
+  color: #c5a159;
+  text-decoration: none;
+}
+
+.contactLink:hover {
+  text-decoration: underline;
+}
+
+.contactIcon {
+  margin-right: 8px;
+  font-size: 1.1rem;
+  color: #c5a159;
+}
+
+.mapEmbedWrapper {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(197, 161, 89, 0.2);
+}
+
+.mapIframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
 /* CTA Section */
 
 .ctaSection {
@@ -366,6 +454,14 @@
   padding: 10px 0;
   font-size: 0.9rem;
   font-family: 'Lora', serif;
+}
+
+.visuallyHidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -536,5 +632,8 @@
   .footer {
     padding: 10px 10px;
     font-size: 0.8rem;
+  }
+  .mapIframe {
+    height: 180px;
   }
 }
