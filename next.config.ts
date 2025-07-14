@@ -12,7 +12,8 @@ const nextConfig: NextConfig = {
     "rc-notification",
     "rc-tooltip",
     "rc-tree",
-    "rc-table"
+    "rc-table",
+    "@rc-component"
   ],
 };
 
