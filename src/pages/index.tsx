@@ -97,9 +97,7 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300 }}
-              onClick={() => {
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
+              
             >
               Book Your Dream Event
             </MotionButton>
