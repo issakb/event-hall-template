@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
+//import Image from 'next/image';
 import { Button, Layout, Row, Col, Typography, Carousel, Collapse, Form, Input, DatePicker, Modal, FormInstance } from 'antd';
 import { FaInstagram, FaPhone, FaTiktok } from 'react-icons/fa6';
 import styles from '../styles/Home.module.css';
