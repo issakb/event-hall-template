@@ -1,0 +1,31 @@
+/* Footer.module.css */
+
+.footer {
+    background-color: #1a1a1a;
+    color: #888;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    font-family: var(--font-family-primary);
+  }
+  
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footerIcons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footerText {
+    color: #888;
+    font-size: 0.9rem;
+    font-family: var(--font-family-primary);
+    text-align: center;
+  }
+  

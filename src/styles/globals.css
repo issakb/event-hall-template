@@ -1,16 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700&family=Playfair+Display:wght@700&display=swap');
+/* globals.css */
 
+:root {
+  --primary-color: #C5A159; /* Default primary color */
+  --secondary-color: #e0c77d; /* Hover color */
+  --dark-background: #0a0a0a; /* Very dark background */
+  --light-text: #f7f1e1; /* Soft cream text */
+  --hero-overlay: rgba(15, 12, 8, 0.7);
+  --font-family-primary: 'Lora', serif; /* Default primary font */
+  --font-family-secondary: 'Playfair Display', serif; /* Default secondary font */
+}
+
+/* Global Reset */
 html, body, #__next {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #0a0a0a;
-  font-family: 'Lora', serif;
-  color: #f7f1e1;
+  background-color: var(--dark-background);
+  font-family: var(--font-family-primary);
+  color: var(--light-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Shared Button Styles */
+.ctaButton {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--dark-background);
+  font-weight: 600;
+  padding: 12px 10px;
+  border-radius: 30px;
+  box-shadow: 0 6px 15px rgba(197, 161, 89, 0.4);
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  background-color: var(--secondary-color);
+  color: var(--dark-background);
+}
+
+.ctaButtonSecondary {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 12px 50px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ctaButtonSecondary:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-background);
+  border-color: var(--primary-color);
+}
+
+/* Footer Icons */
+.footerIcon {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+.footerIcon:hover {
+  color: var(--light-text);
 }

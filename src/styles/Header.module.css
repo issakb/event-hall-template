@@ -1,0 +1,60 @@
+/* Header.module.css */
+
+.header {
+    background-color: var(--dark-background);
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    height: 64px;
+  }
+  
+  .logo {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.8rem;
+    font-family: var(--font-family-secondary);
+    letter-spacing: 1.2px;
+    cursor: default;
+  }
+  
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .logoImage {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .logoText {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.8rem;
+    font-family: var(--font-family-secondary);
+    letter-spacing: 1.2px;
+    cursor: default;
+  }
+  
+  .titlePhoneNumber {
+    margin-left: auto;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .phoneIcon {
+    color: inherit;
+    font-size: 1.3rem;
+    margin-right: 8px;
+  }
+  
+  .phoneText {
+    font-family: inherit;
+    color: inherit;
+    font-size: 16px;
+    font-weight: bold;
+  }  

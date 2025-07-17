@@ -1,0 +1,31 @@
+/* HeroSection.module.css */
+
+.heroSection {
+    position: relative;
+    padding: 120px 50px 100px 50px;
+    background-image: url(${process.env.NEXT_PUBLIC_HERO_IMAGE_URL});
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: var(--light-text);
+    font-family: var(--font-family-primary);
+    text-align: center;
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .heroSection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay);
+    z-index: 0;
+  }
+  
+  .heroText {
+    position: relative;
+    z-index: 1;
+  }  
